@@ -1,0 +1,12 @@
+#ignore vendor folder
+vendor/
+
+#ignore netbeans project folder
+nbproject/
+
+#ignore gitattributes file
+.gitattributes
+
+#ignore composer lock and phar files
+.lock
+.phar
