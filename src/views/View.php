@@ -1,34 +1,34 @@
 <?php
-/**
-* @author SJSU Students
-*/
-namespace sjsustudents\hw3\views;
+require_once 'src/models/Model.php';
+require_once 'src/controllers/Controller.php';
 
-require_once ('layouts/Header.php');
-require_once ('layouts/Footer.php');
+class View {
 
-use sjsustudents\hw3\views\layouts as LYOT;
+    private $model;
+    private $controller;
 
-/**
-*	Abstract View class
-*	Holds data for the view's header and footer to be used in all subclasses
-*/
-abstract class View
-{
-	protected $head;
-	protected $footer;
+    public function __construct(Controller $controller, Model $model) {
+        $this->controller = $controller;
+        $this->model = $model;
+    }
 
-	/**
-	*	Constructor for the abstract Model class
-	*/
-	public function __construct()
-	{
-		$this->head = new LYOT\Header();
-		$this->footer = new LYOT\Footer();
-	}
+    public function output() {
+        ?>
 
-	/**
-	*	Renders the view's specific page
-	*/
-	abstract public function render();
+        <DOCTYPE! html>
+            <head>
+                <title>Web Sheets</title>
+            </head>
+
+            <body>
+                <h1><a href="index.php">Web Sheets</a></h1>
+                <form action="index.php" method="POST">
+                    <input type="text" name="sheetname" placeholder="New sheet name or code">
+                    <input type="hidden" name="submitted" value="yes">
+                    <input type="submit" value="Go">
+                </form>
+            </BODY>
+        </html>
+        <?php
+    }
 }

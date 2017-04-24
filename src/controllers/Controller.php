@@ -1,26 +1,19 @@
 <?php
-/**
-* @author SJSU Students
-*/
-namespace sjsustudents\hw3\controllers;
+require_once 'src/models/Model.php';
+require_once 'src/views/View.php';
 
-/**
-*   Controller base class
-*   Holds data for the controllers corresponding model and view to act as thier mediator
-*/
-class Controller
-{
-	protected $model;
-	protected $view;
+class Controller {
 
-    /**
-    *   Constructor for Controller class
-    */
-	public function __construct()
-	{
-		$this->model = 0;
-		$this->view = 0;
-	}
+    private $model;
+
+    public function __construct(Model $model) {
+        $this->model = $model;
+    }
+
+    public function get_submission() {
+        if (isset($_POST['submitted'])) {
+            $this->model->update_date($_POST['sheetname']);
+        }
+    }
 
 }
-
