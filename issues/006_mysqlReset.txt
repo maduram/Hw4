@@ -1,0 +1,3 @@
+Title: Resetting MYSQL service
+Assigned to: Madula
+Description: MySQL service stopped working due to my error, ended up reinstalling the service to fix it.

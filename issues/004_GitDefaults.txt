@@ -1,0 +1,7 @@
+Title: Git Defaults
+Assigned to: Madula
+Description: Tried to fix the default directory for Git Bash, but didn't work.
+
+Discussion:
+-tried "Start in"
+-tried editing a "cd.sh" file

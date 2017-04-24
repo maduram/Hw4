@@ -1,0 +1,17 @@
+{
+    "name": "404_error/Hw4",
+    "type": "Hw4_project",
+    "authors": [
+        {
+            "name": "Madula Ramabathiran",
+            "email": "madularama@gmail.com"
+        },
+        {
+            "name": "Aishwarya Borkar",
+            "email": "aish.borkar@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "1.0.*"
+    }
+}

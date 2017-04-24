@@ -1,0 +1,8 @@
+Title: Coding LandingView.php file
+Assigned to: Madula
+Description: Attempted to edit form data for LandingView.php file
+
+Discussion:
+-what session is toggled?
+-validate data = validate.js
+-how to display error message when user inputs special characters in input
