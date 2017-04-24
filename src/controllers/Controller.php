@@ -12,7 +12,7 @@ class Controller {
 
     public function get_submission() {
         if (isset($_POST['submitted'])) {
-            $this->model->update_date($_POST['sheetname']);
+            $this->model->validate($_POST['sheetname']);
         }
     }
 

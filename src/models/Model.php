@@ -4,7 +4,7 @@ require_once 'src/controllers/Controller.php';
 
 class Model {
 
-    public function update_date($name) {
+    public function validate($name) {
         if ($name == "hello")
         {
             echo "Sucessful submission: " . $_POST['sheetname'];

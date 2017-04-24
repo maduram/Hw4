@@ -18,6 +18,7 @@ class View {
         <DOCTYPE! html>
             <head>
                 <title>Web Sheets</title>
+                <link rel="stylesheet" type="text/css" href="src/styles/main.css">
             </head>
 
             <body>
