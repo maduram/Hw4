@@ -1,15 +1,20 @@
 <?php
 namespace excalibur\hw4\views;
-class View
+
+use excalibur\hw4\views\layouts as LYOT;
+
+abstract class View
 {
-    public function __construct()
-    {
-        echo "test view";
-        echo "\n";
+    protected $header;
+    protected $footer;
+    
+    public function __construct() {
+        $this->header = new LYOT\Header();
+        $this->footer = new LYOT\Footer();
     }
+    
+    abstract public function render();
 }
-
-
 
 
 
@@ -49,15 +54,4 @@ class View
     }
 }*/
 
-/*abstract class View
-{
-    protected $header;
-    protected $footer;
-    
-    public function __construct() {
-        $this->header = new excalibur\hw4\views\layouts\Header();
-        $this->header = new LYOT\Footer();
-    }
-    
-    abstract public function render($data);
-}*/
+
