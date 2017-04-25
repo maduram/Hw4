@@ -1,8 +1,23 @@
 <?php
-require_once 'src/models/Model.php';
-require_once 'src/controllers/Controller.php';
+namespace excalibur\hw4\views;
+class View
+{
+    public function __construct()
+    {
+        echo "test view";
+        echo "\n";
+    }
+}
 
-class View {
+
+
+
+
+
+//require_once 'src/models/Model.php';
+//require_once 'src/controllers/Controller.php';
+
+/*class View {
 
     private $model;
     private $controller;
@@ -23,13 +38,26 @@ class View {
 
             <body>
                 <h1><a href="index.php">Web Sheets</a></h1>
-                <form action="index.php" method="POST">
+                
+                <form action="index.php?m=post" method="POST">
                     <input type="text" name="sheetname" placeholder="New sheet name or code">
-                    <input type="hidden" name="submitted" value="yes">
                     <input type="submit" value="Go">
                 </form>
             </BODY>
         </html>
         <?php
     }
-}
+}*/
+
+/*abstract class View
+{
+    protected $header;
+    protected $footer;
+    
+    public function __construct() {
+        $this->header = new excalibur\hw4\views\layouts\Header();
+        $this->header = new LYOT\Footer();
+    }
+    
+    abstract public function render($data);
+}*/
