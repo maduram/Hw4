@@ -2,6 +2,7 @@
 namespace excalibur\hw4;
 require_once 'vendor/autoload.php';
 
+
 $model = new \excalibur\hw4\models\Model();
 $controller = new \excalibur\hw4\controllers\Controller();
 $view = new \excalibur\hw4\views\View();
