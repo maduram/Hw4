@@ -1,57 +1,38 @@
 <?php
+
 namespace excalibur\hw4\views;
 
-use excalibur\hw4\views\layouts as LYOT;
+use excalibur\hw4\configs as CFG;
+use excalibur\hw4\models as MDL;
+use excalibur\hw4\controllers as CTR;
+use excalibur\hw4\views as VWS;
 
-abstract class View
+class View
 {
-    protected $header;
-    protected $footer;
-    
-    public function __construct() {
-        $this->header = new LYOT\Header();
-        $this->footer = new LYOT\Footer();
-    }
-    
-    abstract public function render();
-}
 
+    private $cfg;
 
-
-
-//require_once 'src/models/Model.php';
-//require_once 'src/controllers/Controller.php';
-
-/*class View {
-
-    private $model;
-    private $controller;
-
-    public function __construct(Controller $controller, Model $model) {
-        $this->controller = $controller;
-        $this->model = $model;
-    }
-
-    public function output() {
+    function landing ()
+    {
+        $model = new MDL\Model();
         ?>
-
-        <DOCTYPE! html>
+        <!DOCTYPE html>
+        <html>
             <head>
                 <title>Web Sheets</title>
-                <link rel="stylesheet" type="text/css" href="src/styles/main.css">
             </head>
-
             <body>
                 <h1><a href="index.php">Web Sheets</a></h1>
-                
-                <form action="index.php?m=post" method="POST">
-                    <input type="text" name="sheetname" placeholder="New sheet name or code">
+
+                <form action="index.php?c=main&m=landing" method="POST" >
+                    <input type="text" placeholder="New sheet name or code" name="input"
+                           value="<?php $model->validate(filter_input(INPUT_POST, 'input',
+ \FILTER_SANITIZE_SPECIAL_CHARS)); ?>" required>
                     <input type="submit" value="Go">
                 </form>
-            </BODY>
+            </body>
         </html>
         <?php
     }
-}*/
 
-
+}

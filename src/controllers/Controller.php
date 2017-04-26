@@ -1,14 +1,64 @@
 <?php
 namespace excalibur\hw4\controllers;
+
+
+use excalibur\hw4\models as MDL;
+use excalibur\hw4\controllers as CTR;
+use excalibur\hw4\views as VWS;
+
 class Controller
 {
-    public function __construct()
+    private $model;
+    private $input;
+    private $edit;
+    
+    function landingController ()
     {
-        echo "test controller";
-        echo "\n";
+        echo VWS\View::landing();        
     }
+    
+    function apiController ()
+    {
+        $edit = new VWS\EditView();
+        $edit->editView();
+    }
+    
+    function readController ()
+    {
+        
+    }
+    
+   
+    
 }
 
+
+
+
+
+
+
+
+
+
+
+
+//class Controller
+//{
+//	protected $model;
+//	protected $view;
+//
+//    /**
+//    *   Constructor for Controller class
+//    */
+//	public function __construct()
+//	{
+//		$this->model = 0;
+//		$this->view = 0;
+//	}
+//
+//}
+//
 
 
 

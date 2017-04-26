@@ -1,34 +1,25 @@
 <?php
+
+/*
+ * CS 174 Spring 2017 Hw 4 (Madula R.)
+ * 
+ * Index.php landing page. Goes through controllers to see which page to load.
+ */
+
 namespace excalibur\hw4;
+
 require_once 'vendor/autoload.php';
 
+use excalibur\hw4\controllers as CTR;
 
-$model = new \excalibur\hw4\models\Model();
-$controller = new \excalibur\hw4\controllers\Controller();
-$view = new \excalibur\hw4\views\View();
+//init controller
+$controller = new CTR\Controller();
 
-
-
-
-
-
-//$view->test($test3);
-//$model = new Model();
-//$controller = new Controller($model);
-//$view = new View($controller, $model);
-//
-//$controller->validate();
-//
-//echo $view->output();
-/*
- * controller base = construct -> init model/input
- * edit controller: generate links, show spreadsheet, update after prompt, add sheet name to header, validate input (dont submit if not valid)
- * read controller: display spreadsheet, file url
- * file controller: display xml
- * 
- * view base = construct header file & footer file, render display
- * header/footer elements - view.render(data)
- * landing - render form
- *  
- * 
- */
+//check if on post page, then load content
+if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
+    if ($_REQUEST['c'] == 'main' && $_REQUEST['m'] == 'landing') {
+        $controller->apiController();
+    }
+} else {
+    $controller->landingController();
+}
