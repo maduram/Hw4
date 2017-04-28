@@ -15,31 +15,10 @@ class Model {
     private $name;
     private $code;
     public $in;
-    
-    
+
+    public $model;
     public $connection;
-    public $cfg; 
-    public $db;
-    
-//     public function dbConnect()
-//    {
-//        $db = new CFG\CreateDB();
-//        $db->createDB();
-//        $this->initiateConnection();
-//    }
-//    public function initiateConnection()
-//    {
-//        $cfg = new CFG\Config();
-//       $this->connection = new \mysqli($cfg::host, $cfg::username, $cfg::password, $cfg::port, $cfg::db);
-////        if($this->connection->connect_error)
-////        {
-////            return false;
-////        }
-////        else 
-////        {
-////            return true;
-////        }
-//    }
+    public $db; 
     
     function validate($data) {
         $flag = false;

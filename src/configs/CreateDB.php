@@ -2,15 +2,13 @@
 
 namespace excalibur\hw4\configs;
 
-use excalibur\hw4\configs as CFG;
+use excalibur\Hw4\configs as CFG;
 
 class CreateDB
 {
 
     function createDB ()
     {
-
-
         $cfg = new CFG\Config();
 
         $host = $cfg::host;
@@ -66,22 +64,7 @@ code_type CHAR(1)
         } else {
             echo "Error creating table: " . $conn->error. "\n";
         }
-//foreach ($sql as $query) {
-//    // success message if query runs correctly
-//    if ($conn->query($query)) {
-//        $conn->select_db($cfg::db);
-//
-//        //choose query
-//        echo $query . " created\n\n";
-//    }
-//    // gives error message if query did not run successfully and stops the script
-//    else {
-//        echo "Table could not be created: " . $conn->error . "\n";
-//        die;
-//    }
-//}
 
         $conn->close();
     }
-
 }
