@@ -1,20 +1,28 @@
 <?php
 namespace excalibur\hw4\controllers;
 
+use excalibur\hw4\controllers\Controller;
+use excalibur\hw4\configs\Config;
+
 class EditController extends Controller
 {
     public $hr;
     public $ft;
-    function __construct()
+
+
+	public function invoke()
 	{
-		parent::__construct();
+		if($this->model->connection->ping())
+		{
+			$this->model->closeConnection();
+		}
 	}
         
-        function show_form()
+    function show_form()
 	{
 		$hr = new \excalibur\hw4\views\layouts\Header();
-                $hr = new \excalibur\hw4\views\layouts\Footer();
+        $hr = new \excalibur\hw4\views\layouts\Footer();
 		$this->hr->render();
-                $this->fr->render();
+        $this->fr->render();
 	}
 }

@@ -15,6 +15,10 @@ use excalibur\hw4\controllers as CTR;
 //init controller
 $controller = new CTR\Controller();
 
+//invokes connection to Model, which creates db
+$controller_edit=new CTR\EditController();
+$controller_edit->invoke();
+
 //check if on post page, then load content
 if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
     if ($_REQUEST['c'] == 'main' && $_REQUEST['m'] == 'landing') {

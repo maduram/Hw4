@@ -1,17 +1,22 @@
 <?php
+namespace excalibur\Hw4\configs;
 
-namespace excalibur\hw4\configs;
+ /** 
+  * Config class to declare constants used to configure the application. 
+  * Author: Aishwarya Borkar
+  */
+class Config
+{
 
-/**
- * Class implementation to contain the the constants for initializing the
- * Note-A-List database and timezone variable.
- */
-class Config {
-    const BASE_URL = 'localhost/index.php?';
-    const host = 'localhost';
-    const username = 'root';
-    const password = '';
-    const port = 3306;
-    const db = 'spreadsheetDB';
+	const BASE_URL="http://localhost/Hw4/index.php";
+	const BASE_DIRECTORY="http://localhost/Hw4";
+	const _CONTROLLER_NAMESPACE_="excalibur\\hw4\\controllers\\";
+	const DB_HOST="localhost";
+	const DB_USER="root";
+	const DB_PASSWORD="";
+	const DB_NAME="spreadsheetsDB";
+	const DB_PORT=3306;
+	const DB_SOCKET="";
+	
+} ?>
 
-}

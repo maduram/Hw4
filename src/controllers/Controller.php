@@ -6,11 +6,29 @@ use excalibur\hw4\models as MDL;
 use excalibur\hw4\controllers as CTR;
 use excalibur\hw4\views as VWS;
 
+use excalibur\hw4\configs\Config;
+use excalibur\hw4\models\DataModel;
+
 class Controller
 {
-    private $model;
+    public $model;
     private $input;
     private $edit;
+    public $data;
+
+    public function __construct()
+    {
+        $this->data=[];
+        $this->data['title']="";
+        $this->data['sheetid']="";
+        $this->data['sheetname']="";
+        $this->data['sheetdata']="";
+        $this->data['hashcode']="";
+        $this->data['codetype']="";
+        $this->model=new DataModel();
+    
+    }
+
     
     function landingController ()
     {

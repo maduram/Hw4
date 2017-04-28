@@ -7,11 +7,44 @@
 
 namespace excalibur\hw4\models;
 
+use excalibur\hw4\configs\CreateDB;
+
+use excalibur\hw4\configs\Config;
+
 class Model {
     
     private $name;
     private $code;
     public $in;
+
+    public $model;
+    public $connection;
+    public $db; 
+
+    public function __construct()
+    {
+        $db=new CreateDB(); 
+        $db->createDB();
+        $this->initiateConnection();
+    }
+
+    public function initiateConnection()
+    {
+        $this->connection=new \mysqli(Config::DB_HOST,Config::DB_USER,Config::DB_PASSWORD,Config::DB_NAME,Config::DB_PORT);
+        if($this->connection->connect_error)
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
+    }
+
+    public function closeConnection()
+    {
+        $this->connection->close();
+    }
     
     function validate($data) {
         $flag = false;
