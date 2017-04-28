@@ -21,9 +21,11 @@ $controller_edit->invoke();
 
 //check if on post page, then load content
 if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
-    if ($_REQUEST['c'] == 'main' && $_REQUEST['m'] == 'landing') {
+    if ($_REQUEST['c'] == 'api' && $_REQUEST['m'] == 'edit') {
         $controller->apiController();
+    } elseif ($_REQUEST['c'] == 'read' && $_REQUEST['m'] == 'display') {
+        $controller->readController();
+    } else {
+        $controller->landingController();
     }
-} else {
-    $controller->landingController();
 }

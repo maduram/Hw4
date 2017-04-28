@@ -1,9 +1,6 @@
 <?php
 namespace excalibur\hw4\controllers;
 
-
-use excalibur\hw4\models as MDL;
-use excalibur\hw4\controllers as CTR;
 use excalibur\hw4\views as VWS;
 
 use excalibur\hw4\configs\Config;
@@ -13,7 +10,10 @@ class Controller
 {
     public $model;
     private $input;
+    
+    private $landing;
     private $edit;
+<<<<<<< HEAD
     public $data;
 
     public function __construct()
@@ -29,10 +29,14 @@ class Controller
     
     }
 
+=======
+    private $read;
+>>>>>>> bd8001168c802cbc99b37041c80eb74e9ef19d4b
     
     function landingController ()
     {
-        echo VWS\View::landing();        
+        $landing = new VWS\View();
+        $landing->landing();        
     }
     
     function apiController ()
@@ -43,7 +47,8 @@ class Controller
     
     function readController ()
     {
-        
+        $read = new VWS\ReadView();
+        $read->readView();
     }
     
    
