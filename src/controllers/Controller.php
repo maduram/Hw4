@@ -1,9 +1,6 @@
 <?php
 namespace excalibur\hw4\controllers;
 
-
-use excalibur\hw4\models as MDL;
-use excalibur\hw4\controllers as CTR;
 use excalibur\hw4\views as VWS;
 
 class Controller

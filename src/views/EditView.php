@@ -24,13 +24,13 @@ class EditView
                 <h1><a href="index.php">Web Sheets</a>: <?php echo "Sheet name"; ?></h1>
 
                 <h2>Edit URL: </h2>
-                <textarea rows="1" cols="70"><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
                 </textarea>
                 <h2>Read URL: </h2> 
-                <textarea rows="1" cols="70"><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
                 </textarea>
                 <h2>File URL: </h2> 
-                <textarea rows="1" cols="70"><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1=".$hash; ?>
                 </textarea>
 
                 <div id="spreadsheet"> </div>
