@@ -7,11 +7,15 @@ class Controller
 {
     private $model;
     private $input;
+    
+    private $landing;
     private $edit;
+    private $read;
     
     function landingController ()
     {
-        echo VWS\View::landing();        
+        $landing = new VWS\View();
+        $landing->landing();        
     }
     
     function apiController ()
@@ -22,7 +26,8 @@ class Controller
     
     function readController ()
     {
-        
+        $read = new VWS\ReadView();
+        $read->readView();
     }
     
    

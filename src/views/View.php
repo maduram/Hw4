@@ -24,7 +24,7 @@ class View
             <body>
                 <h1><a href="index.php">Web Sheets</a></h1>
 
-                <form action="index.php?c=main&m=landing" method="POST" >
+                <form action="index.php?c=api&m=edit" method="POST" >
                     <input type="text" placeholder="New sheet name or code" name="input"
                            value="<?php $model->validate(filter_input(INPUT_POST, 'input',
  \FILTER_SANITIZE_SPECIAL_CHARS)); ?>" required>
