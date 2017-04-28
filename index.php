@@ -19,9 +19,10 @@ $controller = new CTR\Controller();
 if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
     if ($_REQUEST['c'] == 'api' && $_REQUEST['m'] == 'edit') {
         $controller->apiController();
-    } elseif ($_REQUEST['c'] == 'read' && $_REQUEST['m'] == 'display') {
-        $controller->readController();
-    } else {
-        $controller->landingController();
     }
+    if ($_REQUEST['c'] == 'read' && $_REQUEST['m'] == 'display') {
+        $controller->readController();
+    }
+} else {
+    $controller->landingController();
 }

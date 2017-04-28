@@ -39,9 +39,16 @@ class Model {
         echo $in;
     }
     
+    function hashCode ()
+    {
+        
+        $hash = substr(md5($_POST['input']), 0, 8);
+        
+    }
+    
     function createSheet($id, $sh, $shdata) {
         //create in db
-        
+        //$query = mysql_query("INSERT INTO user_data (id, phone, location, speed, direction, comment) VALUES ('$id', '$phone', '$location', '$speed', '$direction', '$comment')");
     }
 
     function createCodes($id, $hash, $type) {

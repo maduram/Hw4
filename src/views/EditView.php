@@ -13,7 +13,6 @@ class EditView
     {
         $cfg = new CFG\Config();
         
-        $hash = substr(md5($_POST['input']), 0, 8);
         ?>
         <!DOCTYPE html>
         <html>
@@ -35,7 +34,7 @@ class EditView
 
                 <div id="spreadsheet"> </div>
                     <script src="src/scripts/spreadsheet.js">
-                        document.getElementById("spreadsheet").innerHTML = "Spreadsheet";
+                        
                     </script>
             </body>
         </html>

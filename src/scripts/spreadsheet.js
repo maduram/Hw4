@@ -17,6 +17,7 @@
  */
 function Spreadsheet(spreadsheet_id, supplied_data)
 {
+    document.getElementById("spreadsheet").innerHTML = "Spreadsheet";
     var self = this;
     var p = Spreadsheet.prototype;
     var properties = (typeof arguments[2] !== 'undefined') ?

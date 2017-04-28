@@ -1,5 +1,4 @@
-<?php
-namespace excalibur\hw4\configs;
+<?php namespace excalibur\hw4\configs;
 
 use excalibur\hw4\configs as CFG;
 
@@ -13,6 +12,7 @@ $cfg = new CFG\Config();
 
 //Create connection
 $conn = new mysqli($host, $usr, $pwd, $db);
+
 //Check connection
 if ($conn->connect_error)
 {
@@ -38,6 +38,7 @@ foreach ($sql as $query) {
     if ($conn->query($query))
     {
         $conn->select_db($cfg::db);
+        
         //choose query
         echo $query." created\n\n";
     }
