@@ -8,7 +8,7 @@ namespace excalibur\hw4\configs;
  */
 class Config {
     const BASE_URL = 'localhost/index.php?';
-    const host = 'localhost';
+    const host = '127.0.0.1';
     const username = 'root';
     const password = '';
     const port = 3306;
