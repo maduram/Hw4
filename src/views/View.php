@@ -25,12 +25,15 @@ class View
                 <h1><a href="index.php">Web Sheets</a></h1>
 
                 <form action="index.php?c=api&m=edit" method="POST" >
-                    <input type="text" placeholder="New sheet name or code" name="input"
-                           value="<?php $model->validate(filter_input(INPUT_POST, 'input',
- \FILTER_SANITIZE_SPECIAL_CHARS)); ?>" required>
-                    <input type="submit" value="Go">
+                    <input type="text" placeholder="New sheet name or code" id="input" required>
+<!--                           value="//php $model->get_input(filter_input(INPUT_POST, 'input',
+ \FILTER_SANITIZE_SPECIAL_CHARS)); ?>" -->
+ <input type="submit" value="Go" onclick="get_input(document.getElementById('input').value)">
                 </form>
+                
+                <script src="src/scripts/UserInput.js"></script>
             </body>
+            
         </html>
         <?php
     }

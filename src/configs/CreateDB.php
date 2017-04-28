@@ -6,7 +6,12 @@ use excalibur\hw4\configs as CFG;
 
 class CreateDB
 {
-
+    public $host;
+    public $usr;
+    public $pwd;
+    public $db;
+    public $conn;
+    
     function createDB ()
     {
         $cfg = new CFG\Config();
@@ -36,16 +41,23 @@ class CreateDB
 
 
         $sql = "CREATE TABLE Sheet (
-id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-sheet_name VARCHAR(30) NOT NULL,
-sheet_data TEXT
-)";
+                sh_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                sheet_name VARCHAR(30) NOT NULL,
+                sheet_data TEXT
+                )";
 
         $sqlCodes = "CREATE TABLE Sheet_Codes (
-id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-hash_code INT(8) NOT NULL,
-code_type CHAR(1)
-)";
+                    cd_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                    hash_code INT(8) NOT NULL,
+                    code_type CHAR(1)
+                    )";
+        
+//        $sqlID = "CREATE TABLE Sheet_ID (
+//sheet_id INT NOT NULL, 
+//code_id INT(8) NOT NULL,
+//FOREIGN KEY(sheet_id) REFERENCES Sheet(sh_id),
+//FOREIGN KEY(code_id) REFERENCES Sheet(cd_id)
+//)";
 
 
         if ($conn->query($sql) === TRUE) {
@@ -62,5 +74,9 @@ code_type CHAR(1)
 
         $conn->close();
     }
-
+    
+    function insert()
+    {
+        
+    }
 }

@@ -20,30 +20,10 @@ class Model {
     public $connection;
     public $db; 
     
-    function validate($data) {
-        $flag = false;
+    function get_input($data) {
         
-        $input = str_replace(' ', '', $data);
         
-        if (ctype_alnum($input))
-        {
-            $in = $input;
-            $flag = true;
-        }
         
-        if (ctype_digit($input) && strlen($input) == 8) {
-            $in = $input;
-            $flag = true;
-        } else {
-            $flag = false;
-        }
-
-        return $flag;
-    }
-    
-    function display_name()
-    {
-        echo $in;
     }
     
     function hashCode ()
@@ -61,5 +41,25 @@ class Model {
     function createCodes($id, $hash, $type) {
         //create in db
     }
-
+    
+//    function check () {
+//    $flag = false;
+//        
+//        $input = str_replace(' ', '', $data);
+//        
+//        if (ctype_alnum($input))
+//        {
+//            $in = $input;
+//            $flag = true;
+//        }
+//        
+//        if (ctype_digit($input) && strlen($input) == 8) {
+//            $in = $input;
+//            $flag = true;
+//        } else {
+//            $flag = false;
+//        }
+//
+//        return $flag;
+//    }
 }
