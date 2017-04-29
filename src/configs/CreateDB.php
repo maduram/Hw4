@@ -91,19 +91,19 @@ class CreateDB
 
     function get_shname ()
     {
-//        $conn = self::connect();
-//
-//        $input = mysql_real_escape_string(filter_input(INPUT_POST, 'input',
-//             \FILTER_SANITIZE_SPECIAL_CHARS));
-//        
-        //$query2 = "SELECT * from Sheet WHERE sheet_name='" . $input . "'";
+        $conn = self::connect();
 
-//        $result = $conn->query($query2);
-//        while ($row = $result->fetch_assoc()) {
-//            if ($row["sheet_name"] == $input) {
-//                return $input;
-//            }
-//        }
+        $input = mysql_real_escape_string(filter_input(INPUT_POST, 'input',
+             \FILTER_SANITIZE_SPECIAL_CHARS));
+        
+        $query2 = "SELECT * from Sheet WHERE sheet_name='" . $input . "'";
+
+        $result = $conn->query($query2);
+        while ($row = $result->fetch_assoc()) {
+            if ($row["sheet_name"] == $input) {
+                return $input;
+            }
+        }
     }
 
 }

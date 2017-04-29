@@ -25,15 +25,15 @@ class EditView
                 <h1><a href="index.php">Web Sheets</a>: </h1><div><?php $db->get_shname(); ?> </div>
 
                 <h2>Edit URL: </h2>
-                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1="; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing"; ?>
                 </textarea>
 
                 <h2>Read URL: </h2> 
-                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1="; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing"; ?>
                 </textarea>
 
                 <h2>File URL: </h2> 
-                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1="; ?>
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing"; ?>
                 </textarea>
             </body>
         </html>

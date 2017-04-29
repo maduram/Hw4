@@ -1,7 +1,7 @@
 <?php
 
 /*
- * CS 174 Spring 2017 Hw 4 (Madula R.)
+ * CS 174 Spring 2017 Hw 4
  * 
  * Index.php landing page. Goes through controllers to see which page to load.
  */
