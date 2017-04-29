@@ -2,6 +2,7 @@
 
 namespace excalibur\hw4\views;
 
+use excalibur\app_data\visitorlog; 
 use excalibur\hw4\configs as CFG;
 use excalibur\hw4\models as MDL;
 
@@ -21,6 +22,8 @@ class EditView
                 <title>Web Sheets</title>
             </head>
             <body>
+            <?php $logger = $this->get('logger');
+                  $logger->info('Visit to editView has been made.');?>
                 
                 <h1><a href="index.php">Web Sheets</a>: </h1><div><?php $db->get_shname(); ?> </div>
 

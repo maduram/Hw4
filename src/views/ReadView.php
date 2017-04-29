@@ -2,6 +2,7 @@
 
 namespace excalibur\hw4\views;
 
+use excalibur\app_data\visitorlog; 
 use excalibur\hw4\configs as CFG;
 
 class ReadView
@@ -17,6 +18,8 @@ class ReadView
                 <title>Web Sheets</title>
             </head>
             <body>
+            <?php $logger = $this->get('logger');
+                  $logger->info('Visit to readView has been made.');?>
                 <h1><a href="index.php">Web Sheets</a>: Sheet name</h1>
 
                 <h2>File URL: </h2> 

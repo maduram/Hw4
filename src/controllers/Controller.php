@@ -5,6 +5,9 @@ use excalibur\hw4\views as VWS;
 use excalibur\hw4\models as MDL;
 use excalibur\hw4\configs as CFG;
 
+/*
+* Main Controller class that has specific controller functions to invoke the Landing page, the Edit *view, and the Read View.
+*/
 
 class Controller
 {
