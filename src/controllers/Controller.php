@@ -14,8 +14,6 @@ class Controller
     private $landing;
     private $edit;
     
-    
-    public $connection;
     public $db; 
     
     function landingController ()

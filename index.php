@@ -17,7 +17,7 @@ $controller = new CTR\Controller();
 
 //check if on post page, then load content
 if (isset($_REQUEST['c']) && isset($_REQUEST['m'])) {
-    if ($_REQUEST['c'] == 'api' && $_REQUEST['m'] == 'edit') {
+    if ($_REQUEST['c'] == 'main' && $_REQUEST['m'] == 'landing') {
         $controller->apiController();
     }
     if ($_REQUEST['c'] == 'read' && $_REQUEST['m'] == 'display') {

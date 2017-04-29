@@ -19,7 +19,9 @@ class ReadView
             <body>
                 <h1><a href="index.php">Web Sheets</a>: Sheet name</h1>
 
-                <h2>File URL: <?php $cfg::BASE_URL ?></h2>
+                <h2>File URL: </h2> 
+                <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1="; ?>
+                </textarea>
 
                 <div>Sheet display</div>
             </body>

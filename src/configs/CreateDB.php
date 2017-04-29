@@ -6,77 +6,116 @@ use excalibur\hw4\configs as CFG;
 
 class CreateDB
 {
-    public $host;
-    public $usr;
-    public $pwd;
-    public $db;
+
+    const HOST = CFG\Config::host;
+    const USER = CFG\Config::username;
+    const PWD = CFG\Config::password;
+    const DB = CFG\Config::db;
+
     public $conn;
-    
-    function createDB ()
+
+    public static function connect ()
     {
-        $cfg = new CFG\Config();
+        $conn = mysqli_connect(self::HOST, self::USER, self::PWD, self::DB);
 
-        $host = $cfg::host;
-        $usr = $cfg::username;
-        $pwd = $cfg::password;
-        $db = $cfg::db;
-//Create connection
-        $conn = new \mysqli($host, $usr, $pwd, $db);
-
-
-        $dbcreate = 'CREATE DATABASE IF NOT EXISTS ' . $cfg::db;
-
-        if ($conn->query($dbcreate) === true) {
-            echo $db . " created\n";
-        } else {
-            echo "Database could not be created: " . $conn->error . "\n";
-            die;
-        }
-
-//Check connection
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error . "\n");
+            die("Connection failed: " . $conn->connect_error . "<br />");
         }
-        echo "Connected successfully" . "\n";
 
+        return $conn;
+    }
+
+    public static function dbCreate ()
+    {
+        $conn = self::connect();
+
+        $dbCreate = "CREATE DATABASE IF NOT EXISTS " . self::DB;
+
+        //$result = mysqli_query($conn, $dbCreate) or die("Error creating database.\r");
+
+        if ($conn->query($dbCreate)) {
+            echo "Db created! <br />";
+        } else {
+            echo "Error creating database: " . $conn->error . "<br />";
+        }
+
+        //return $result;
+    }
+
+    public static function do_query ($query)
+    {
+        $conn = self::connect();
+
+        if ($conn->query($query)) {
+            echo "Query worked! <br />";
+        } else {
+            echo "Error creating query: " . $conn->error . "<br />";
+        }
+
+        //return $doQuery;
+    }
+
+    public static function closeConnection ()
+    {
+        return mysqli_close(self::connect());
+    }
+
+    public static function createDB ()
+    {
+        self::connect();
+        self::dbCreate();
 
         $sql = "CREATE TABLE Sheet (
-                sh_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-                sheet_name VARCHAR(30) NOT NULL,
-                sheet_data TEXT
+                shid INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                shname VARCHAR(30) NOT NULL,
+                shdata TEXT
                 )";
-
+        
         $sqlCodes = "CREATE TABLE Sheet_Codes (
-                    cd_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                    cd_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     hash_code INT(8) NOT NULL,
                     code_type CHAR(1)
                     )";
-        
-//        $sqlID = "CREATE TABLE Sheet_ID (
-//sheet_id INT NOT NULL, 
-//code_id INT(8) NOT NULL,
-//FOREIGN KEY(sheet_id) REFERENCES Sheet(sh_id),
-//FOREIGN KEY(code_id) REFERENCES Sheet(cd_id)
-//)";
+        //$alter = "ALTER TABLE Sheet AUTO_INCREMENT=1";
+
+        //self::do_query($sql);
+        //self::do_query($sqlCodes);
+        //self::do_query($alter);
+
+        $input = filter_input(INPUT_POST, 'input',
+             \FILTER_SANITIZE_SPECIAL_CHARS);
+        $string = str_replace(' ', '', $input);
+        $string = mysql_real_escape_string($string);
+
+        $query = "INSERT INTO Sheet (shid, sheetname, sheetdata) VALUES (NULL,`$string`, NULL)";
+
+        self::do_query($query);
 
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Table Sheet created successfully\n";
-        } else {
-            echo "Error creating table: " . $conn->error . "\n";
-        }
 
-        if ($conn->query($sqlCodes) === TRUE) {
-            echo "Table Sheet_Codes created successfully\n";
-        } else {
-            echo "Error creating table: " . $conn->error . "\n";
-        }
 
-        $conn->close();
+
+        self::closeConnection();
     }
-    
-    function insert()
+
+    function get_shname ()
     {
-        
+        $conn = self::connect();
+
+        $input = filter_input(INPUT_POST, 'input', \FILTER_SANITIZE_SPECIAL_CHARS);
+        $string = str_replace(' ', '', $input);
+
+        $query2 = "SELECT * from Sheet WHERE sheet_name=" . $string;
+
+        $result = $conn->query($query2);
+        while ($row = $result->fetch_assoc()) {
+
+            if ($row["sheet_name"] == $string) {
+                echo $string;
+            } else {
+                echo "this name doesnt exist. <br />";
+            }
+        }
     }
+
 }

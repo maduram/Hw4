@@ -13,6 +13,7 @@ class EditView
     function editView ()
     {
         $cfg = new CFG\Config();
+        $db = new CFG\CreateDB();
         ?>
         <!DOCTYPE html>
         <html>
@@ -20,9 +21,8 @@ class EditView
                 <title>Web Sheets</title>
             </head>
             <body>
-                <script src="src/scripts/UserInput.js"></script>
                 
-                <h1><a href="index.php">Web Sheets</a>: <div id="input"> </div></h1>
+                <h1><a href="index.php">Web Sheets</a>: </h1><div><?php $db->get_shname(); ?> </div>
 
                 <h2>Edit URL: </h2>
                 <textarea rows="1" cols="53" readonly><?php echo $cfg::BASE_URL . "c=main&m=landing&arg1="; ?>
