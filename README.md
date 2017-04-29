@@ -22,5 +22,5 @@ Thank you for visiting!
 
 ### How to run the code:
 * Open Config.php under the src/configs folder
-* Set the constants to your database values and save
+* Set the constants to your MySQL database values (found on your phpmyadmin page on your web server) and save
 * Run index.php
