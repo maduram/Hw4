@@ -4,13 +4,22 @@ namespace excalibur\hw4\views;
 
 use excalibur\app_data\visitorlog; 
 use excalibur\hw4\configs as CFG;
-
+/*
+ * CS 174 Spring 2017 Hw 4
+ * View class to read spreadsheet
+ */
 class ReadView
 {
 
+    /*
+     * Display spreadsheet and file download link.
+     */
     function readView ()
     {
+        //init configs
         $cfg = new CFG\Config();
+        
+        //start html
         ?>
         <!DOCTYPE html>
         <html>
@@ -18,8 +27,6 @@ class ReadView
                 <title>Web Sheets</title>
             </head>
             <body>
-            <?php $logger = $this->get('logger');
-                  $logger->info('Visit to readView has been made.');?>
                 <h1><a href="index.php">Web Sheets</a>: Sheet name</h1>
 
                 <h2>File URL: </h2> 
@@ -30,6 +37,7 @@ class ReadView
             </body>
         </html>
         <?php
+        //end html
     }
 
 }

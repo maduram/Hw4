@@ -21,3 +21,6 @@ Thank you for visiting!
 ------------------------
 
 ### How to run the code:
+* Open Config.php under the src/configs folder
+* Set the constants to your database values and save
+* Run index.php

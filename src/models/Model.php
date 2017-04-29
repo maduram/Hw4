@@ -2,7 +2,7 @@
 
 /*
  * CS 174 Spring 2017 Hw 4
- * Model class to handle storage of variables and db creation
+ * Model class to handle storage of variables.
  */
 
 namespace excalibur\hw4\models;
@@ -23,6 +23,9 @@ class Model {
     public $sheetname;
     public $hashcode;
     
+    /*
+     * Validate user input
+     */
     public static function validate ()
     {
         $str = filter_input(INPUT_POST, 'input', \FILTER_SANITIZE_SPECIAL_CHARS);

@@ -5,6 +5,10 @@ namespace excalibur\app_data\visitorlog;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
+/*
+ * CS 174 Spring 2017 Hw 4
+ * logger file to log visits to all links
+ */
 
 // Create the logger
 $logger = new Logger('visitor_log');

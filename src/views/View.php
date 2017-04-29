@@ -6,8 +6,12 @@ use excalibur\hw4\configs as CFG;
 use excalibur\hw4\models as MDL;
 use excalibur\hw4\controllers as CTR;
 use excalibur\hw4\views as VWS;
-use excalibur\app_data\visitorlog; 
+use excalibur\app_data\visitorlog;
 
+/*
+ * CS 174 Spring 2017 Hw 4
+ * View class to handle display.
+ */
 class View
 {
 
@@ -15,7 +19,10 @@ class View
 
     function landing ()
     {
+        //init model
         $mdl = new MDL\Model();
+        
+        //start html
         ?>
         <!DOCTYPE html>
         <head>
@@ -28,23 +35,21 @@ class View
                 <input type="text" placeholder="New sheet name or code" name="input" required>
                 <input type="submit" value="Go" >
             </form>
-            
+
             <br />
             <h2>Database Results:</h2>
             <br />
-            
+
         </body>
         </html>
         <?php
+        //end html
         
-        
-        
-        
-        
+        //send user input as sheet_name query value
         $query = "INSERT INTO Sheet VALUES (NULL,'{$_POST['input']}', NULL)";
         
+        //init query
         CFG\CreateDB::do_query($query);
     }
 
 }
-//<input type="text" placeholder="New sheet name or code" id="input" value="<?php $db->insert(filter_input(INPUT_POST, 'input', \FILTER_SANITIZE_SPECIAL_CHARS));" required>
