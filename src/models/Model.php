@@ -20,46 +20,21 @@ class Model {
     public $connection;
     public $db; 
     
-    function get_input($data) {
-        
-        
-        
-    }
+    public $sheetname;
+    public $hashcode;
     
-    function hashCode ()
+    public static function validate ()
     {
+        $str = filter_input(INPUT_POST, 'input', \FILTER_SANITIZE_SPECIAL_CHARS);
         
-        $hash = substr(md5($_POST['input']), 0, 8);
+        if (ctype_alnum($str))
+        {
+            $sheetname = $str;
+        }
+        
+        if (ctype_digit($str) && strlen($str) == 8) {
+            $hashcode = $str;
+        } 
         
     }
-    
-    function createSheet($id, $sh, $shdata) {
-        
-
-    }
-
-    function createCodes($id, $hash, $type) {
-        //create in db
-    }
-    
-//    function check () {
-//    $flag = false;
-//        
-//        $input = str_replace(' ', '', $data);
-//        
-//        if (ctype_alnum($input))
-//        {
-//            $in = $input;
-//            $flag = true;
-//        }
-//        
-//        if (ctype_digit($input) && strlen($input) == 8) {
-//            $in = $input;
-//            $flag = true;
-//        } else {
-//            $flag = false;
-//        }
-//
-//        return $flag;
-//    }
 }

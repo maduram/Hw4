@@ -3,6 +3,7 @@
 namespace excalibur\hw4\configs;
 
 use excalibur\hw4\configs as CFG;
+use excalibur\hw4\models as MDL;
 
 class CreateDB
 {
@@ -13,13 +14,20 @@ class CreateDB
     const DB = CFG\Config::db;
 
     public $conn;
+    public $valid;
+    public $sheetname;
+    public $hashcode;
 
     public static function connect ()
     {
         $conn = mysqli_connect(self::HOST, self::USER, self::PWD, self::DB);
 
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error . "<br />");
+            echo "Connected to MySQL successfully!<br />";
+        }
+        else
+        {
+            echo "Connection failed: " . $conn->connect_error . "<br />";
         }
 
         return $conn;
@@ -31,28 +39,26 @@ class CreateDB
 
         $dbCreate = "CREATE DATABASE IF NOT EXISTS " . self::DB;
 
-        //$result = mysqli_query($conn, $dbCreate) or die("Error creating database.\r");
-
         if ($conn->query($dbCreate)) {
-            echo "Db created! <br />";
-        } else {
-            echo "Error creating database: " . $conn->error . "<br />";
+            echo "Created database '".self::DB."' successfully!<br />";
         }
-
-        //return $result;
+        else
+        {
+            echo "Database creation failed, error: " . $conn->connect_error . "<br />";
+        }
     }
 
     public static function do_query ($query)
     {
         $conn = self::connect();
-
+        
         if ($conn->query($query)) {
-            echo "Query worked! <br />";
-        } else {
+            echo "Sent query to database successfully!<br />";
+        }
+        else
+        {
             echo "Error creating query: " . $conn->error . "<br />";
         }
-
-        //return $doQuery;
     }
 
     public static function closeConnection ()
@@ -76,46 +82,28 @@ class CreateDB
                     hash_code INT(8) NOT NULL,
                     code_type CHAR(1)
                     )";
-        //$alter = "ALTER TABLE Sheet AUTO_INCREMENT=1";
 
-        //self::do_query($sql);
-        //self::do_query($sqlCodes);
-        //self::do_query($alter);
-
-        $input = filter_input(INPUT_POST, 'input',
-             \FILTER_SANITIZE_SPECIAL_CHARS);
-        $string = str_replace(' ', '', $input);
-        $string = mysql_real_escape_string($string);
-
-        $query = "INSERT INTO Sheet (shid, sheetname, sheetdata) VALUES (NULL,`$string`, NULL)";
-
-        self::do_query($query);
-
-
-
-
-
+        self::do_query($sql);
+        self::do_query($sqlCodes);
+        
         self::closeConnection();
     }
 
     function get_shname ()
     {
-        $conn = self::connect();
+//        $conn = self::connect();
+//
+//        $input = mysql_real_escape_string(filter_input(INPUT_POST, 'input',
+//             \FILTER_SANITIZE_SPECIAL_CHARS));
+//        
+        //$query2 = "SELECT * from Sheet WHERE sheet_name='" . $input . "'";
 
-        $input = filter_input(INPUT_POST, 'input', \FILTER_SANITIZE_SPECIAL_CHARS);
-        $string = str_replace(' ', '', $input);
-
-        $query2 = "SELECT * from Sheet WHERE sheet_name=" . $string;
-
-        $result = $conn->query($query2);
-        while ($row = $result->fetch_assoc()) {
-
-            if ($row["sheet_name"] == $string) {
-                echo $string;
-            } else {
-                echo "this name doesnt exist. <br />";
-            }
-        }
+//        $result = $conn->query($query2);
+//        while ($row = $result->fetch_assoc()) {
+//            if ($row["sheet_name"] == $input) {
+//                return $input;
+//            }
+//        }
     }
 
 }
